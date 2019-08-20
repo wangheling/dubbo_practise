@@ -1,0 +1,33 @@
+server:
+  port: 8081
+#mysql
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/study?useUnicode=true&charsetEncoding=utf8&autoReconnect=true&useSSL=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 下面为连接池的补充设置，应用到上面所有数据源中
+    # 初始化大小，最小，最大
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+
+dubbo:
+  protocol:
+    name: dubbo
+    port: 20880
+  application:
+    name: dubbo-provider
+  registry:
+    address: zookeeper://192.168.199.175:2181
+  # zk集群配置
+  # address: zookeeper://192.168.199.175:2181?backup=ip:port,ip:port
+  scan:
+    # 扫描dubbo注解@service
+    base-packages: com.dubbo.study
+
+
+
+

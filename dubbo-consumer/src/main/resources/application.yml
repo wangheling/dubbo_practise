@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+dubbo:
+  protocol:
+    name: dubbo
+    port: 20880
+  application:
+    name: dubbo-consumer
+  registry:
+    address: zookeeper://192.168.199.175:2181
+  # zk集群配置
+  # address: zookeeper://192.168.199.175:2181?backup=ip:port,ip:port
+  scan:
+    base-packages: com.dubbo.study
