@@ -15,8 +15,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("dubbo")
 public class TestDubboController {
 
-    //引入dubbo服务
-    @Reference
+    /**
+     * 引入dubbo服务
+     * mock:服务降级,在消费端配置
+     * cluster：容错机制
+     * <p>
+     * 请求超过1ms，则返回mock数据
+     */
+//    @Reference(timeout = 1, cluster = "failfast", mock = "com.dubbo.study.service.TestDubboServiceMock")
+//    ITestDubboService testDubboService;
+
+    /**
+     * check：解决服务循环依赖
+      */
+    @Reference(check = false, cluster = "failfast", mock = "com.dubbo.study.service.TestDubboServiceMock")
     ITestDubboService testDubboService;
 
     @GetMapping("test")

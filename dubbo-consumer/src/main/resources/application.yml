@@ -9,6 +9,8 @@ dubbo:
     name: dubbo-consumer
   registry:
     address: zookeeper://192.168.199.175:2181
+    # 解决循环依赖，比如A调用B的服务，B调用A的服务，导致启动不了，check改为false，可以在接口注解里配置check
+    check: false
   # zk集群配置
   # address: zookeeper://192.168.199.175:2181?backup=ip:port,ip:port
   scan:
