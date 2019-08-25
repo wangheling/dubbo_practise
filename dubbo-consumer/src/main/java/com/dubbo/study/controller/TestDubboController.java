@@ -2,9 +2,12 @@ package com.dubbo.study.controller;
 
 import com.dubbo.study.service.ITestDubboService;
 import org.apache.dubbo.config.annotation.Reference;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @author whl
@@ -28,8 +31,11 @@ public class TestDubboController {
     /**
      * check：解决服务循环依赖
       */
-    @Reference(check = false, cluster = "failfast", mock = "com.dubbo.study.service.TestDubboServiceMock")
-    ITestDubboService testDubboService;
+//    @Reference(check = false, cluster = "failfast", mock = "com.dubbo.study.service.TestDubboServiceMock")
+//    ITestDubboService testDubboService;
+
+    @Resource
+    private ITestDubboService testDubboService;
 
     @GetMapping("test")
     public String testDubbo() {

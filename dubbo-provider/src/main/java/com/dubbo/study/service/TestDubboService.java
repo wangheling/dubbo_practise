@@ -1,6 +1,7 @@
 package com.dubbo.study.service;
 
 import org.apache.dubbo.config.annotation.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 
@@ -13,7 +14,8 @@ import java.util.concurrent.TimeUnit;
  *org.apache.dubbo.config.annotation.Service
  *注意是dubbo的@Service
  */
-@Service(loadbalance = "random", timeout = 50000, cluster = "failfast")
+//@Service(loadbalance = "random", timeout = 50000, cluster = "failfast")
+@Component
 public class TestDubboService implements ITestDubboService {
 
     @Override

@@ -14,19 +14,19 @@ spring:
     minIdle: 5
     maxActive: 20
 
-dubbo:
-  protocol:
-    name: dubbo
-    port: 20880
-  application:
-    name: dubbo-provider
-  registry:
-    address: zookeeper://192.168.199.175:2181
-  # zk集群配置
-  # address: zookeeper://192.168.199.175:2181?backup=ip:port,ip:port
-  scan:
-    # 扫描dubbo注解@service
-    base-packages: com.dubbo.study
+#dubbo:
+#  protocol:
+#    name: dubbo
+#    port: 20880
+#  application:
+#    name: dubbo-provider
+#  registry:
+#    address: zookeeper://192.168.199.175:2181
+#  # zk集群配置
+#  # address: zookeeper://192.168.199.175:2181?backup=ip:port,ip:port
+#  scan:
+#    # 扫描dubbo注解@service
+#    base-packages: com.dubbo.study
 
 
 
